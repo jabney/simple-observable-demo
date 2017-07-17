@@ -15,7 +15,7 @@ main {
 
   .control-container {
     position: absolute;
-    top: $header-height + $body-margin;
+    top: $header-height + 12px;
     left: 0;
     right: 0;
     bottom: 0;
