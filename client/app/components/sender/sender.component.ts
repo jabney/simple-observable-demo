@@ -29,6 +29,8 @@ export class SenderComponent implements OnInit {
   }
 
   public start() {
+    this.messageService.broadcast(null)
+
     this.intervalId = window.setInterval(() => {
       this.messageService.broadcast(null)
     }, INTERVAL_MS)
