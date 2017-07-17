@@ -3,6 +3,12 @@
 main {
   font-family: Arial, Helvetica, sans-serif;
   display: block;
+  position: absolute;
+  top: $body-margin;
+  left: $body-margin;
+  right: $body-margin;
+  bottom: $body-margin;
+  overflow: hidden;
 
   h1 {
     text-align: center;
