@@ -12,4 +12,12 @@ main {
     background-color: $very-light-blue;
     border: 1px solid lightgray;
   }
+
+  .control-container {
+    position: absolute;
+    top: $header-height + $body-margin;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
