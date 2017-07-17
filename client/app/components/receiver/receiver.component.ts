@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core'
+import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core'
+import { MessageService, ISubscriptionToken } from "../../services/message.service"
+import { APP_MESSAGES } from "../../tokens"
 
 @Component({
   selector: 'receiver',
@@ -7,24 +9,40 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core'
 })
 
 export class ReceiverComponent implements OnInit {
-  private subscribed: boolean
+  private events: object[]
+  private subscription: ISubscriptionToken
 
   @Output() private subscribeAction = new EventEmitter<number>()
 
-  constructor() { }
+  constructor(@Inject(APP_MESSAGES) private messageService: MessageService) {
+    this.events = []
+    this.subscription = null
+  }
 
   public subscribe() {
-    this.subscribed = true
     this.subscribeAction.emit(1)
+
+    this.subscription = this.messageService.subscribe((payload, id) => {
+      if (this.events.length % 5 === 0) {
+        this.events = []
+      }
+      this.events.push(payload)
+    })
+
+  }
+
+  public clear() {
+    this.events = []
   }
 
   public unsubscribe() {
-    this.subscribed = false
     this.subscribeAction.emit(-1)
+    this.subscription.unsubscribe()
+    this.subscription = null
   }
 
   public isSubscribed() {
-    return this.subscribed
+    return this.subscription !== null
   }
 
   public toggle() {
