@@ -13,9 +13,9 @@ export class MessageService {
     this.subject.notify({ payload })
   }
 
-  public subscribe(callback: (payload: any, id: number) => void): ISubscriptionToken {
+  public subscribe(callback: TNotifyCallback): ISubscriptionToken {
     return this.subject.subscribe(callback)
   }
 }
 
-export { ISubscriptionToken }
+export { ISubscriptionToken, TNotifyCallback }
