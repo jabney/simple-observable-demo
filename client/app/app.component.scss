@@ -2,10 +2,10 @@
 
 main {
   font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
   display: block;
 
   h1 {
+    text-align: center;
     margin: 0;
     height: $header-height;
     line-height: $header-height;
