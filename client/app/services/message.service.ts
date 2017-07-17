@@ -1,12 +1,12 @@
-import { SimpleObservable, ISubscriptionToken } from 'simple-subject-observer/src'
+import { SimpleSubject, ISubscriptionToken, TNotifyCallback } from 'simple-subject/src'
 import { Injectable } from '@angular/core'
 
 @Injectable()
 export class MessageService {
-  private subject: SimpleObservable
+  private subject: SimpleSubject
 
   constructor() {
-    this.subject = new SimpleObservable()
+    this.subject = new SimpleSubject()
   }
 
   public broadcast(payload: any) {
