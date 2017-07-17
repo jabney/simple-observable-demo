@@ -1,35 +1,33 @@
 @import 'global';
 
+html, body {
+  height: 100%;
+}
+
 html {
   font-size: 16px;
 }
 
 body {
   font-size: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: $body-margin;
   background: $body-background;
   color: $body-color;
+  margin: 0;
+  padding: 0;
 }
 
 sender .container {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0.25em;
+  right: 0;
   bottom: 0;
+  margin-right: 0.25em;
   background-color: $very-light-purple;
 }
 
 receiver .container {
-  position: absolute;
-  top: 0;
-  left: 0.25em;
-  right: 0;
-  bottom: 0;
+  height: 44.65%;
+  margin-left: 0.25em;
   background-color: $very-light-peach;
 }
