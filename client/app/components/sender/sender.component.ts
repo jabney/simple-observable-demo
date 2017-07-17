@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject, Input } from '@angular/core'
-import { MessageService } from "../services/message.service"
-import { APP_MESSAGES } from "../tokens"
+import { MessageService } from "../../services/message.service"
+import { APP_MESSAGES } from "../../tokens"
+
+const INTERVAL_MS = 1000
 
 @Component({
   selector: 'sender',
@@ -9,36 +11,41 @@ import { APP_MESSAGES } from "../tokens"
 })
 export class SenderComponent implements OnInit {
   private messageCount: number
-  private running: boolean
+  private intervalId: number
 
   @Input('subscribers') private subscribers: object[]
 
   constructor(@Inject(APP_MESSAGES) private messageService: MessageService) {
     this.messageCount = 0
-    this.running = false
+    this.intervalId = null
   }
 
-  public buttonText() {
-    return this.running ? 'Stop' : 'Start'
+  public buttonText(): string {
+    return this.isRunning() ? 'Stop' : 'Start'
+  }
+
+  public isRunning() {
+    return this.intervalId !== null
   }
 
   public start() {
-    this.running = true
+    this.intervalId = window.setInterval(() => {
+      this.messageService.broadcast(null)
+    }, INTERVAL_MS)
   }
 
   public stop() {
-    this.running = false
+    clearInterval(this.intervalId)
+    this.intervalId = null
   }
 
   public toggle() {
-    if (this.running) {
+    if (this.isRunning()) {
       this.stop()
     } else {
       this.start()
     }
   }
 
-  public ngOnInit() {
-    if (this.running) { this.start() }
-  }
+  public ngOnInit() { }
 }
