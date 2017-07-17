@@ -3,9 +3,10 @@
 
   <div class="control-container">
     <div class="left">
-      <sender interval="500" [subscribers]="numSubscribers"></sender>
+       <sender interval="500" [subscribers]="numSubscribers"></sender>
     </div>
     <div class="right">
+      <receiver (subscribeAction)="subscribeAction($event)"></receiver>
       <receiver (subscribeAction)="subscribeAction($event)"></receiver>
     </div>
   </div>
