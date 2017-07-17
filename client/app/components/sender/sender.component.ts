@@ -10,6 +10,7 @@ import { APP_MESSAGES } from "../../tokens"
 export class SenderComponent implements OnInit {
   private messageCount: number
   private intervalId: number
+  private events: object[]
 
   @Input() private subscribers: object[]
   @Input() private interval: number
@@ -17,6 +18,7 @@ export class SenderComponent implements OnInit {
   constructor(@Inject(APP_MESSAGES) private messageService: MessageService) {
     this.messageCount = 0
     this.intervalId = null
+    this.events = []
   }
 
   public buttonText(): string {
@@ -28,16 +30,24 @@ export class SenderComponent implements OnInit {
   }
 
   public start() {
-    this.messageService.broadcast(null)
-
     this.intervalId = window.setInterval(() => {
-      this.messageService.broadcast(null)
+      if (this.events.length % 10 === 0) {
+        this.events = []
+      }
+
+      const event = {type: 'interval', id: this.messageCount++}
+      this.events.push(event)
+      this.messageService.broadcast(event)
     }, +this.interval)
   }
 
   public stop() {
     clearInterval(this.intervalId)
     this.intervalId = null
+  }
+
+  public clear() {
+    this.events = []
   }
 
   public toggle() {
