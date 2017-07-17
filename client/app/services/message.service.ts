@@ -1,33 +1,19 @@
-import { SimpleObservable } from 'simple-subject-observer/src'
+import { SimpleObservable, ISubscriptionToken } from 'simple-subject-observer/src'
 import { Injectable } from '@angular/core'
-import { Subject } from 'rxjs/Subject'
-import { Subscription } from 'rxjs/Subscription'
-import 'rxjs/add/operator/filter'
-import 'rxjs/add/operator/map'
-
-export interface IMessage {
-  type: string
-  payload: any
-}
-
-export type MessageCallback = (payload: any) => void
 
 @Injectable()
 export class MessageService {
-  private handler: Subject<IMessage>
+  private subject: SimpleObservable
 
   constructor() {
-    this.handler = new Subject<IMessage>()
+    this.subject = new SimpleObservable()
   }
 
-  public broadcast(type: string, payload: any) {
-    this.handler.next({ type, payload })
+  public broadcast(payload: any) {
+    this.subject.notify({ payload })
   }
 
-  public subscribe(type: string, callback: MessageCallback): Subscription {
-    return this.handler
-      .filter((message) => message.type === type)
-      .map((message) => message.payload)
-      .subscribe(callback)
+  public subscribe(callback: (payload: any, id: number) => void): ISubscriptionToken {
+    return this.subject.subscribe(callback)
   }
 }
