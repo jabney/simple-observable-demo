@@ -5,7 +5,7 @@ import { APP_MESSAGES } from './tokens'
 
 import { MessageService } from './services/message.service'
 
-import '../scss/styles.scss'
+import '../scss/app.scss'
 
 @Component({
   selector: 'my-app',
