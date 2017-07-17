@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const webpackMerge = require('webpack-merge')
 const ngToolsWebpack = require('@ngtools/webpack')
+let path = require('path')
 const cfgExtend = require('./cfg-extend')
 const common = require('./webpack.common.js')
 
@@ -24,6 +25,12 @@ module.exports = webpackMerge(common.client, {
     app: './client/main-aot.ts',
     polyfill: './client/polyfills.ts',
     vendor: './client/vendor.ts'
+  },
+
+  output: {
+    filename: '[name].[chunkhash].js',
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: '/dist/'
   },
 
   module: {

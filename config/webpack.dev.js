@@ -20,6 +20,11 @@ module.exports = webpackMerge(common.client, {
     vendor: './client/vendor.ts'
   },
 
+  output: {
+    filename: '[name].[chunkhash].js',
+    path: path.resolve(__dirname, '../dist')
+  },
+
   module: {
     rules: [
       {
