@@ -12,13 +12,14 @@
     "trailing-comma": [ "ignore" ]
   },
   "rules": {
+    "no-empty": false,
     "no-console": [true, "log"],
-    "trailing-comma": [ false ],
     "ordered-imports": [ false ],
     "object-literal-sort-keys": false,
     "no-var-requires": false,
     "quotemark": [ "single" ],
     "semicolon": [ true, "never" ],
+    "trailing-comma": [ false ],
     "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"]
   },
   "rulesDirectory": []
