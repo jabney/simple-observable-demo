@@ -1,12 +1,30 @@
 @import 'global';
 
 body {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: $body-margin;
-    background: $body-background;
-    color: $body-color;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: $body-margin;
+  background: $body-background;
+  color: $body-color;
+}
+
+sender .container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 50.25%;
+  bottom: 0;
+  background-color: $very-light-purple;
+}
+
+receiver .container {
+  position: absolute;
+  top: 0;
+  left: 50.25%;
+  right: 0;
+  bottom: 0;
+  background-color: $very-light-peach;
 }
