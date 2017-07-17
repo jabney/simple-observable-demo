@@ -2,8 +2,6 @@ import { Component, OnInit, Inject, Input } from '@angular/core'
 import { MessageService } from "../../services/message.service"
 import { APP_MESSAGES } from "../../tokens"
 
-const INTERVAL_MS = 1000
-
 @Component({
   selector: 'sender',
   templateUrl: 'sender.component.html',
@@ -13,7 +11,8 @@ export class SenderComponent implements OnInit {
   private messageCount: number
   private intervalId: number
 
-  @Input('subscribers') private subscribers: object[]
+  @Input() private subscribers: object[]
+  @Input() private interval: number
 
   constructor(@Inject(APP_MESSAGES) private messageService: MessageService) {
     this.messageCount = 0
@@ -33,7 +32,7 @@ export class SenderComponent implements OnInit {
 
     this.intervalId = window.setInterval(() => {
       this.messageService.broadcast(null)
-    }, INTERVAL_MS)
+    }, +this.interval)
   }
 
   public stop() {
