@@ -1,6 +1,15 @@
+@import 'global';
+
 main {
-  padding: 1em;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   display: block;
+
+  h1 {
+    margin: 0;
+    height: $header-height;
+    line-height: $header-height;
+    background-color: $very-light-blue;
+    border: 1px solid lightgray;
+  }
 }
