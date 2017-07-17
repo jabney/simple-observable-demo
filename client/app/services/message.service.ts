@@ -17,3 +17,5 @@ export class MessageService {
     return this.subject.subscribe(callback)
   }
 }
+
+export { ISubscriptionToken }
