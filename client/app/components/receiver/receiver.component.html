@@ -1,3 +1,7 @@
 <div class="container">
-   <button (click)="toggle()">{{ buttonText() }}</button>
+  <button (click)="toggle()">{{ buttonText() }}</button>
+  <button class="clear" *ngIf="events.length" (click)="clear()">Clear</button>
+  <div class="events" *ngFor="let event of events">
+    <div>{{ event | json }}</div>
+  </div>
 </div>
