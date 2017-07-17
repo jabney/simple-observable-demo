@@ -1,6 +1,11 @@
 @import 'global';
 
+html {
+  font-size: 16px;
+}
+
 body {
+  font-size: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -15,7 +20,7 @@ sender .container {
   position: absolute;
   top: 0;
   left: 0;
-  right: 50.25%;
+  right: 0.25em;
   bottom: 0;
   background-color: $very-light-purple;
 }
@@ -23,7 +28,7 @@ sender .container {
 receiver .container {
   position: absolute;
   top: 0;
-  left: 50.25%;
+  left: 0.25em;
   right: 0;
   bottom: 0;
   background-color: $very-light-peach;

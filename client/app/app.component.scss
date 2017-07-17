@@ -15,8 +15,24 @@ main {
 
   .control-container {
     position: absolute;
-    top: $header-height + 8px;
+    top: $header-height + 12px;
     left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .control-container .left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 50%;
+    bottom: 0;
+  }
+
+  .control-container .right {
+    position: absolute;
+    top: 0;
+    left: 50%;
     right: 0;
     bottom: 0;
   }
