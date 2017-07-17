@@ -30,7 +30,7 @@ module.exports = webpackMerge(common.client, {
   output: {
     filename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, '../dist'),
-    publicPath: '/simple-subject/dist/'
+    publicPath: '/simple-subject-demo/dist/'
   },
 
   module: {
