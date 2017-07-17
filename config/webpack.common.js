@@ -7,11 +7,6 @@ const PRODUCTION = process.env.NODE_ENV === 'production'
 module.exports = {
   client: {
 
-    output: {
-      filename: '[name].[chunkhash].js',
-      path: path.resolve(__dirname, '../dist')
-    },
-
     resolve: {
       extensions: ['.ts', '.js']
     },
