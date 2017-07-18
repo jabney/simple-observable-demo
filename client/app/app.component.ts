@@ -19,7 +19,7 @@ import { IMsgInterval } from "./messages"
 export class AppComponent {
   public numSubscribers: number
 
-  constructor(@Inject(MSG_INTERVAL) private messageService: MessageService<IMsgInterval>) {
+  constructor() {
     this.numSubscribers = 0
   }
 
