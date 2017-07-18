@@ -1,12 +1,12 @@
 import { Component } from '@angular/core'
 import { Inject } from '@angular/core'
 
-import { MSG_INTERVAL } from './tokens'
+import { MSG_INTERVAL } from './msg-tokens'
 
 import { MessageService } from './services/message.service'
 
 import '../scss/app.scss'
-import { IMsgInterval } from "./messages"
+import { IMsgInterval } from "./msg-interfaces"
 
 @Component({
   selector: 'my-app',

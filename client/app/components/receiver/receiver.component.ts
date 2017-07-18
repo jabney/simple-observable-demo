@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Inject, Input } from '@angular/core'
 import { MessageService, ISubscriptionToken } from "../../services/message.service"
-import { MSG_INTERVAL } from "../../tokens"
-import { IMsgInterval } from "../../messages"
+import { MSG_INTERVAL } from "../../msg-tokens"
+import { IMsgInterval } from "../../msg-interfaces"
 
 @Component({
   selector: 'receiver',
