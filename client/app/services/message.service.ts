@@ -9,8 +9,12 @@ export class MessageService {
     this.subject = new SimpleSubject()
   }
 
-  public broadcast(payload: any) {
-    this.subject.notify(payload)
+  public broadcast(payload: any, async = false) {
+    if (async) {
+      this.subject.notifyAsync(payload)
+    } else {
+      this.subject.notify(payload)
+    }
   }
 
   public subscribe(callback: TNotifyCallback): ISubscriptionToken {
