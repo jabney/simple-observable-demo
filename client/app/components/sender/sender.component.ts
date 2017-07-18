@@ -38,7 +38,7 @@ export class SenderComponent implements OnInit {
         this.events = []
       }
 
-      const event = {type: 'interval', id: this.messageCount++}
+      const event = {type: 'msg.interval', id: this.messageCount++}
       this.events.push(event)
       this.messageService.broadcast(event, true)
     }, +this.interval)
