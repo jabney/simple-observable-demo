@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core'
+import { Component, OnInit, Output, EventEmitter, Inject, Input } from '@angular/core'
 import { MessageService, ISubscriptionToken } from "../../services/message.service"
 import { APP_MESSAGES } from "../../tokens"
 
@@ -12,6 +12,7 @@ export class ReceiverComponent implements OnInit {
   private events: object[]
   private subscription: ISubscriptionToken
 
+  @Input() private resetAt: number
   @Output() private subscribeAction = new EventEmitter<number>()
 
   constructor(@Inject(APP_MESSAGES) private messageService: MessageService) {
@@ -23,7 +24,7 @@ export class ReceiverComponent implements OnInit {
     this.subscribeAction.emit(1)
 
     this.subscription = this.messageService.subscribe((payload, id) => {
-      if (this.events.length % 5 === 0) {
+      if (this.events.length % this.resetAt === 0) {
         this.events = []
       }
       this.events.push(payload)

@@ -14,6 +14,7 @@ export class SenderComponent implements OnInit {
 
   @Input() private subscribers: object[]
   @Input() private interval: number
+  @Input() private resetAt: number
 
   constructor(@Inject(APP_MESSAGES) private messageService: MessageService) {
     this.messageCount = 0
@@ -31,7 +32,7 @@ export class SenderComponent implements OnInit {
 
   public start() {
     this.intervalId = window.setInterval(() => {
-      if (this.events.length % 10 === 0) {
+      if (this.events.length % this.resetAt === 0) {
         this.events = []
       }
 
