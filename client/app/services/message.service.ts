@@ -2,14 +2,14 @@ import { SimpleSubject, ISubscriptionToken, TNotifyCallback } from 'simple-subje
 import { Injectable } from '@angular/core'
 
 @Injectable()
-export class MessageService {
-  private subject: SimpleSubject
+export class MessageService<T> {
+  private subject: SimpleSubject<T>
 
   constructor() {
     this.subject = new SimpleSubject()
   }
 
-  public broadcast(payload: any, async = false) {
+  public broadcast(payload: T, async = false) {
     if (async) {
       this.subject.notifyAsync(payload)
     } else {

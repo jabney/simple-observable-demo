@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Inject, Input } from '@angular/core'
 import { MessageService, ISubscriptionToken } from "../../services/message.service"
 import { MSG_INTERVAL } from "../../tokens"
+import { IMsgInterval } from "../../messages"
 
 @Component({
   selector: 'receiver',
@@ -16,7 +17,7 @@ export class ReceiverComponent implements OnInit {
   @Input() private resetAt: number
   @Output() private subscribeAction = new EventEmitter<number>()
 
-  constructor(@Inject(MSG_INTERVAL) private messageService: MessageService) {
+  constructor(@Inject(MSG_INTERVAL) private messageService: MessageService<IMsgInterval>) {
     this.events = []
     this.subscription = null
   }

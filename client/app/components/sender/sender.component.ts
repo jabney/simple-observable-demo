@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, Input } from '@angular/core'
 import { MessageService } from "../../services/message.service"
 import { MSG_INTERVAL } from "../../tokens"
+import { IMsgInterval } from "../../messages"
 
 @Component({
   selector: 'sender',
@@ -18,7 +19,7 @@ export class SenderComponent implements OnInit {
   @Input() private interval: number
   @Input() private resetAt: number
 
-  constructor(@Inject(MSG_INTERVAL) private messageService: MessageService) {
+  constructor(@Inject(MSG_INTERVAL) private messageService: MessageService<IMsgInterval>) {
     this.messageCount = 0
     this.intervalId = null
     this.events = []

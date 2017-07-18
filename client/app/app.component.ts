@@ -6,6 +6,7 @@ import { MSG_INTERVAL } from './tokens'
 import { MessageService } from './services/message.service'
 
 import '../scss/app.scss'
+import { IMsgInterval } from "./messages"
 
 @Component({
   selector: 'my-app',
@@ -18,7 +19,7 @@ import '../scss/app.scss'
 export class AppComponent {
   public numSubscribers: number
 
-  constructor(@Inject(MSG_INTERVAL) private messageService: MessageService) {
+  constructor(@Inject(MSG_INTERVAL) private messageService: MessageService<IMsgInterval>) {
     this.numSubscribers = 0
   }
 
