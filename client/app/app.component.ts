@@ -16,7 +16,7 @@ import '../scss/app.scss'
   ]
 })
 export class AppComponent {
-  private numSubscribers: number
+  public numSubscribers: number
 
   constructor(@Inject(APP_MESSAGES) private messageService: MessageService) {
     this.numSubscribers = 0

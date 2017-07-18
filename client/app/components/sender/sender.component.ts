@@ -8,11 +8,13 @@ import { APP_MESSAGES } from "../../tokens"
   styleUrls: ['sender.component.scss']
 })
 export class SenderComponent implements OnInit {
+  public events: object[]
+
+  @Input() public subscribers: object[]
+
   private messageCount: number
   private intervalId: number
-  private events: object[]
 
-  @Input() private subscribers: object[]
   @Input() private interval: number
   @Input() private resetAt: number
 

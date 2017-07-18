@@ -9,7 +9,8 @@ import { APP_MESSAGES } from "../../tokens"
 })
 
 export class ReceiverComponent implements OnInit {
-  private events: object[]
+  public events: object[]
+
   private subscription: ISubscriptionToken
 
   @Input() private resetAt: number
