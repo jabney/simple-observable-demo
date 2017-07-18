@@ -24,10 +24,20 @@ sender .container {
   bottom: 0;
   margin-right: 0.25em;
   background-color: $very-light-purple;
+
+  .events {
+    margin-top: 12px;
+    background-color: scale-color($very-light-purple, $lightness: 50%)
+  }
 }
 
 receiver .container {
   height: 44.65%;
   margin-left: 0.25em;
   background-color: $very-light-peach;
+
+  .events {
+    margin-top: 12px;
+    background-color: scale-color($very-light-peach, $lightness: 50%)
+  }
 }
