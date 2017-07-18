@@ -4,6 +4,6 @@
   <span class="subscribers">{{ subscribers }}</span>
   <button class="clear" *ngIf="events.length" (click)="clear()">Clear</button>
   <div class="events">
-    <div *ngFor="let event of events">{{ event | json}}</div>
+    <div *ngFor="let event of events">{{ event | json }}</div>
   </div>
 </div>
