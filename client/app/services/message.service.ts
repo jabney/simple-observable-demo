@@ -10,7 +10,7 @@ export class MessageService {
   }
 
   public broadcast(payload: any) {
-    this.subject.notify({ payload })
+    this.subject.notify(payload)
   }
 
   public subscribe(callback: TNotifyCallback): ISubscriptionToken {
