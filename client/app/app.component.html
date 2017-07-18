@@ -5,7 +5,7 @@
   </div>
   <div class="control-container">
     <div class="left">
-       <sender interval="250" resetAt="20" [subscribers]="numSubscribers"></sender>
+       <sender interval="100" resetAt="20" [subscribers]="numSubscribers"></sender>
     </div>
     <div class="right">
       <receiver resetAt="10" (subscribeAction)="subscribeAction($event)"></receiver>
